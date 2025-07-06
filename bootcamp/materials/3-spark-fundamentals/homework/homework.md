@@ -24,4 +24,4 @@ Your goal is to make the following things happen:
   - With the aggregated data set
     - Try different `.sortWithinPartitions` to see which has the smallest data size (hint: playlists and maps are both very low cardinality)
 
-Save these as .py files and submit them this way! 
+Save these as .py files and submit them this way!
