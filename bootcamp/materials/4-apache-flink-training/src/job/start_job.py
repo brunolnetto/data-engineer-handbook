@@ -109,7 +109,7 @@ def create_events_source_kafka(t_env):
             'format' = 'json'
         );
         """
-    print(source_ddl)
+
     t_env.execute_sql(source_ddl)
     return table_name
 

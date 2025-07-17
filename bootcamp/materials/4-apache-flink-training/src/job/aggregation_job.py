@@ -24,7 +24,6 @@ def create_aggregated_events_sink_postgres(t_env):
     t_env.execute_sql(sink_ddl)
     return table_name
 
-
 def create_aggregated_events_referrer_sink_postgres(t_env):
     table_name = 'processed_events_aggregated_source'
     sink_ddl = f"""

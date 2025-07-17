@@ -18,7 +18,7 @@ help:
 	@echo '  ${YELLOW}make${RESET} ${GREEN}<target>${RESET}'
 	@echo ''
 	@echo 'Targets:'
-	@awk '/^[a-zA-Z\-\_0-9]+:/ { \
+	@awk '/^[a-zA-Z\-_0-9]+:/ { \
 		helpMessage = match(lastLine, /^## (.*)/); \
 		if (helpMessage) { \
 			helpCommand = substr($$1, 0, index($$1, ":")-1); \
@@ -48,8 +48,13 @@ down:
 job:
 	docker compose exec jobmanager ./bin/flink run -py /opt/src/job/start_job.py --pyFiles /opt/src -d
 
+.PHONY: aggregation_job
 aggregation_job:
 	docker compose exec jobmanager ./bin/flink run -py /opt/src/job/aggregation_job.py --pyFiles /opt/src -d
+
+.PHONY: sessionization_job
+sessionization_job:
+	docker compose exec jobmanager ./bin/flink run -py /opt/src/job/sessionization_job.py --pyFiles /opt/src -d
 
 .PHONY: stop
 ## Stops all services in Docker compose
